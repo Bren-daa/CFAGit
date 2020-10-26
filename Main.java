@@ -25,12 +25,18 @@ public class Main {
 
         Author[] authors = {author1, author2, author3};
 
-        List<Author> toto = Arrays.stream(authors)
+        List<Author> authorFilter = Arrays.stream(authors)
                 .filter(auth -> auth.numberBooks() > 3)
                 .filter(auth -> auth.getAge() > 30)
                 .collect(Collectors.toList());
 
-        System.out.println(toto.toString());
+        System.out.println(authorFilter.toString());
+
+        List<Book> books = authorFilter.stream()
+                .flatMap(x -> x.getListBook().stream())
+                .collect(Collectors.toList());
+
+        System.out.println(books.toString());
 
 
     }
