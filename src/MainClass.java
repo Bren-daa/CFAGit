@@ -56,7 +56,14 @@ public class MainClass {
                 .map(author -> new StringBuilder().append(author.getFullName().substring(0,1).toUpperCase()).append(author.getFullName().substring(1)).append(" ").append(author.getLastName().toUpperCase()).toString())
                 .collect(toList());
 
+        List<String> listBooks = authorList
+                .stream()
+                .flatMap(value -> value.getBooks().stream())
+                .map(book -> book.getTitle())
+                .collect(toList());
+
         System.out.println(listFiltered);
+        System.out.println(listBooks);
 
 
     }
