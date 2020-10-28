@@ -1,7 +1,6 @@
 package com.insta.ad.service;
 
 import com.insta.ad.dto.TouristDto;
-import com.insta.ad.model.Tourist;
 import com.insta.ad.repository.TouristRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
